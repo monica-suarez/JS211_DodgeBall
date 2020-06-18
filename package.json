@@ -1,0 +1,25 @@
+{
+  "name": "js211_dodgeball",
+  "version": "1.0.0",
+  "description": "Steps: \r 1. Copy code from Class Textbook.\r 2. Have players on List of People. \r 3. Create a template of dodgeBallPlayer adding canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience. Make sure to include name and id.\r 4. Format button \"Make Player\" so onClick it moves player to Dodgeball players list and adds new value of \"player\" while removing from previous list. \r 5. Define redTeammate and blueTeammate constructors with id, name, team color and mascot. \r 3. Format button for red/blue team so user can click, adding player to either team and removing them from      listOfPlayers array. \r 4. Each teammate has mascot and color added to their name for their specific team. \r 5. Ensure that players cannot be repeated.\r 6. Players MUST BE REMOVED from previous lists.\r 7. Include unit tests (minimum of 3.)",
+  "main": "main.js",
+  "dependencies": {
+    "chai": "^4.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^8.0.1"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MeredithDavis23/JS211_DodgeBall.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MeredithDavis23/JS211_DodgeBall/issues"
+  },
+  "homepage": "https://github.com/MeredithDavis23/JS211_DodgeBall#readme"
+}

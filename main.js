@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 const assert = require('assert');
 
 const arrOfPeople = [
@@ -109,7 +109,7 @@ const arrOfPeople = [
     let index = arrOfPeople.indexOf(person);
     arrOfPeople.splice(index, 1);
     const newPlayer = new Player (person.id, person.name, true, true, true, true, 5)
-    // console.log(newPlayer)
+    console.log(newPlayer)
     listOfPlayers.push(newPlayer)
     // console.log(listOfPlayers)
     const listElement = document.getElementById('players')
@@ -132,7 +132,7 @@ const arrOfPeople = [
       })
       li.appendChild(redButton)
       li.appendChild(blueButton)
-      li.appendChild(document.createTextNode(" " + person.name))
+      li.appendChild(document.createTextNode(` ${person.name}`))
       listElement.append(li)
 }; 
 
@@ -246,23 +246,36 @@ const undoBlue = (id) => {
 
 
 //Unit Tests
-// if (typeof describe === 'function'){
-//   describe('CrewMember', function(){
-//     it('should have a name, a job, a specialSkill and ship upon instantiation', function(){
-//       const crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
-//       assert.equal(crewMember1.name, 'Rick Martinez');
-//       assert.equal(crewMember1.job, 'pilot');
-//       assert.equal(crewMember1.specialSkill, 'chemistry');
-//       assert.equal(crewMember1.ship, null);
-//     });
-
-//     it('can add a person from List of People to Dodgeball Players', function(){
-//       // this adds a person from the list of players to the Dodgeball roster
-//       const newPlayer = new Player (8, "Mocha", true, true, true, true, 5);
-//       makePlayer(id);
-//       assert.equal(listOfPlayers[8].name, "Mocha");
-//       assert.equal(listOfPlayers[8].yearsExperience, 5);
-//       assert.equal(listOfPlayers[8].canDodgeBall, true);
-//     });
-//   });
-// }
+if (typeof describe === 'function'){
+  describe('#makePlayer', () => {
+    it('can add a person from List of People to Dodgeball Players', function(){
+      // this adds a person from the list of players to the Dodgeball roster
+      const newPlayer = new Player(8, "Jane", true, false, true, true, 2);
+      // newPlayer.makePlayer(8);
+      assert.equal(newPlayer.name, "Jane");
+      assert.equal(newPlayer.yearsExperience, 2);
+      assert.equal(newPlayer.canDodgeBall, false);
+    });
+  });
+  describe('RedTeammate', function(){
+    it('should have an id, a name, a teamColor and mascot upon instantiation', function(){
+      // this creates a RedTeammate and passes the following arguments into its constructor:
+      // 'Amy Vasquez', 'red', 'Sloths'
+      const newRedTeammate = new RedTeammate(9, 'Amy Vasquez', 'red', 'Sloths');
+      assert.equal(newRedTeammate.id, 9);
+      assert.equal(newRedTeammate.name, 'Amy Vasquez');
+      assert.equal(newRedTeammate.teamColor, 'red');
+      assert.equal(newRedTeammate.mascot, 'Sloths');
+    });
+  });
+  describe('#assignBlueTeam', () => {
+    it('can add a person from Dodgeball Players array to Blue Team', function(){
+      // this adds a person from the Dodgeball Players to Blue Team with mascot and TeamColor
+      const newBlueTeammate = new BlueTeammate(10, 'Marjorie', 'blue', 'Ice Dragons');
+      assert.equal(newBlueTeammate.id, 10);
+      assert.equal(newBlueTeammate.name, 'Marjorie');
+      assert.equal(newBlueTeammate.teamColor, 'blue');
+      assert.equal(newBlueTeammate.mascot, 'Ice Dragons');
+    });
+  });
+}

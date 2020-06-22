@@ -1,5 +1,12 @@
-'use strict';
-const assert = require('assert');
+//commented out because it does not let the DOM function
+// 'use strict';
+
+///!!!!!uncomment to get tests to run!!!!
+
+// const assert = require('assert');
+
+
+//array of potential players to be pulled from
 
 const arrOfPeople = [
     {
@@ -57,6 +64,8 @@ const arrOfPeople = [
   const blueTeam = []
   const redTeam = []
   
+  //class builds a player
+
   class Player {
     constructor(id, name, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience){
       this.id = id;
@@ -68,6 +77,9 @@ const arrOfPeople = [
       this.yearsExperience = yearsExperience;
     }
   }
+
+  //classes take a player that was made and now assigns them to a blue or red team class
+
   class BlueTeammate {
     constructor(id, name, teamColor, mascot){
       this.id = id;
@@ -85,6 +97,8 @@ const arrOfPeople = [
     }
   }
   
+  //shows list of people after button is pressed
+
   const listPeopleChoices = () => {
     const listElement = document.getElementById('people')
     arrOfPeople.map(person => {
@@ -101,6 +115,9 @@ const arrOfPeople = [
     })
   }
   
+  //pulls person of list of people and makes them a dodgeball player. creates a red and blue button to 
+  //assign player to a team
+
   const makePlayer = (id) => {
      let person = arrOfPeople.find(function (player) {
      return player.id === id
@@ -136,6 +153,8 @@ const arrOfPeople = [
       listElement.append(li)
 }; 
 
+//takes player and assigns them to red/blue team. shows team name and mascot.
+
 const assignBlueTeam = (id) => {
   let person = listOfPlayers.find(function (player) {
     return player.id === id
@@ -156,6 +175,7 @@ const assignBlueTeam = (id) => {
     li.appendChild(document.createTextNode(` ${person.name}, Blue Team, Ice Dragons`))
     listElement.append(li)
 };
+
 
 const assignRedTeam = (id) => {
   let person = listOfPlayers.find(function (player) {
@@ -178,6 +198,7 @@ const assignRedTeam = (id) => {
    listElement.append(li)
 };
 
+//undo buttons to remove player off a team and appends them back on to the make player div
 const undoBlue = (id) => {
   let person = blueTeam.find(function (player) {
     return player.id === id
@@ -246,6 +267,7 @@ const undoBlue = (id) => {
 
 
 //Unit Tests
+
 if (typeof describe === 'function'){
   describe('#makePlayer', () => {
     it('can add a person from List of People to Dodgeball Players', function(){
